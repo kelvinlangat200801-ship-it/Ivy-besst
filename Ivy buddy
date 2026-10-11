@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ivy ✨ My Forever Friend</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:auto;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;background:#f8fafc}
+body{font-family:Poppins,sans-serif;color:#334155}
+.hero{min-height:100svh;background:linear-gradient(135deg,#a78bfa,#60a5fa,#34d399);display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;padding:40px 20px;text-align:center}
+.hero h1{font-family:Fredoka,sans-serif;font-size:85px}
+.btn{padding:15px 32px;border:none;border-radius:50px;font-weight:700;cursor:pointer;margin:8px}
+.section{max-width:760px;margin:0 auto;padding:0 18px}
+.card{background:white;border-radius:28px;box-shadow:0 20px 60px rgba(0,0,0,.08);padding:28px;margin:-40px auto 0;max-width:760px;position:relative;z-index:2}
+h2{font-family:Fredoka,sans-serif;font-size:42px;color:#7c3aed;text-align:center;margin:70px 0 8px}
+.sub{text-align:center;opacity:.6;margin-bottom:28px}
+
+/* LETTERS */
+.letters{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:20px}
+.letter-box{background:white;border-radius:18px;padding:20px;text-align:center;box-shadow:0 10px 25px rgba(0,0,0,.06);cursor:pointer;transition:.3s}
+.letter-box:hover{transform:translateY(-5px)}
+.envelope{font-size:48px}
+.letter-modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;justify-content:center;align-items:center;z-index:99;padding:20px}
+.letter-content{background:#fffef7;border-radius:20px;max-width:600px;width:100%;padding:30px;max-height:85vh;overflow-y:auto;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.3);border:2px dashed #f59e0b}
+.close{position:absolute;right:15px;top:10px;font-size:28px;cursor:pointer}
+
+/* PROMISES */
+.promises{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.promise{height:180px;perspective:1000px;cursor:pointer}
+.promise-inner{position:relative;width:100%;height:100%;transition:transform .7s;transform-style:preserve-3d}
+.promise.flipped .promise-inner{transform:rotateY(180deg)}
+.promise-front,.promise-back{position:absolute;inset:0;border-radius:20px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;backface-visibility:hidden;box-shadow:0 10px 25px rgba(0,0,0,.06)}
+.promise-front{background:white}
+.promise-back{background:linear-gradient(135deg,#7c3aed,#60a5fa);color:white;transform:rotateY(180deg);text-align:center}
+
+.final{background:linear-gradient(135deg,#4c1d95,#2563eb);color:white;padding:80px 20px;text-align:center;margin-top:70px}
+.float{position:fixed;top:-20px;pointer-events:none;animation:fall linear forwards;z-index:1}
+@keyframes fall{to{transform:translateY(110vh)}}
+@media(max-width:650px){.letters{grid-template-columns:1fr}.promises{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>Ivy ✨</h1>
+<p style="font-size:22px;font-weight:600;margin-top:10px">My Forever Friend</p>
+<p style="max-width:500px;margin-top:12px">I made you something interactive - open the letters and promises, they're all for you.</p>
+<p style="margin-top:20px;opacity:.8">Tap to explore ↓</p>
+</div>
+
+<div class="section">
+<div class="card">
+Hey Ivy! This is not just a website - it's a box of little surprises I made for you. Every envelope has a real letter from me, and every promise card is a real promise. Tap them 💜
+</div>
+
+<h2>📩 Letters For You</h2>
+<p class="sub">Tap any envelope to open your letter</p>
+<div class="letters">
+<div class="letter-box" onclick="openLetter('l1')"><div class="envelope">💌</div><b>Letter 1</b><br>Why You Matter</div>
+<div class="letter-box" onclick="openLetter('l2')"><div class="envelope">💜</div><b>Letter 2</b><br>Thank You</div>
+<div class="letter-box" onclick="openLetter('l3')"><div class="envelope">🌟</div><b>Letter 3</b><br>Always Here</div>
+</div>
+</div>
+
+<div class="section" style="margin-top:20px">
+<h2>🤝 My Promises To You</h2>
+<p class="sub">Tap to flip and read my promise</p>
+<div class="promises">
+<div class="promise" onclick="this.classList.toggle('flipped')"><div class="promise-inner"><div class="promise-front">🤫<br><b>Promise 1</b><br><small>Tap to reveal</small></div><div class="promise-back"><b>I promise to keep your secrets safe.</b><br><small>What's told to me stays with me. Always.</small></div></div></div>
+<div class="promise" onclick="this.classList.toggle('flipped')"><div class="promise-inner"><div class="promise-front">🙌<br><b>Promise 2</b><br><small>Tap to reveal</small></div><div class="promise-back"><b>I promise to hype you up always.</b><br><small>Your wins are my wins. I'll always cheer for you.</small></div></div></div>
+<div class="promise" onclick="this.classList.toggle('flipped')"><div class="promise-inner"><div class="promise-front">👂<br><b>Promise 3</b><br><small>Tap to reveal</small></div><div class="promise-back"><b>I promise to listen without judging.</b><br><small>Come to me with anything, anytime.</small></div></div></div>
+<div class="promise" onclick="this.classList.toggle('flipped')"><div class="promise-inner"><div class="promise-front">💪<br><b>Promise 4</b><br><small>Tap to reveal</small></div><div class="promise-back"><b>I promise to have your back.</b><br><small>Through ups and downs, I'm here.</small></div></div></div>
+<div class="promise" onclick="this.classList.toggle('flipped')"><div class="promise-inner"><div class="promise-front">😂<br><b>Promise 5</b><br><small>Tap to reveal</small></div><div class="promise-back"><b>I promise to keep the laughs coming.</b><br><small>More inside jokes loading...</small></div></div></div>
+<div class="promise" onclick="this.classList.toggle('flipped')"><div class="promise-inner"><div class="promise-front">♾️<br><b>Promise 6</b><br><small>Tap to reveal</small></div><div class="promise-back"><b>I promise our friendship stays real.</b><br><small>No fake love, just real friendship forever.</small></div></div></div>
+</div>
+</div>
+
+<!-- MODALS -->
+<div id="m1" class="letter-modal" onclick="closeLetter('m1')"><div class="letter-content" onclick="event.stopPropagation()"><span class="close" onclick="closeLetter('m1')">×</span><h3 style="font-family:Fredoka">Dear Ivy - Why You Matter 💌</h3><br>My dear Ivy,<br><br>You matter more than you think. In a world full of temporary people, you are the kind of friend who makes life feel less heavy.<br><br>You matter because you are kind when it's easier not to be. You matter because you make people feel seen. You matter because your presence alone makes things better.<br><br>Never ever doubt your worth. If no one told you today - you are important, you are valued, and you are deeply appreciated by me.<br><br><b>Always,<br>Kelvin</b></div></div>
+
+<div id="m2" class="letter-modal" onclick="closeLetter('m2')"><div class="letter-content" onclick="event.stopPropagation()"><span class="close" onclick="closeLetter('m2')">×</span><h3 style="font-family:Fredoka">Thank You Letter 💜</h3><br>Ivy!!<br><br>Thank you. For real.<br><br>Thank you for being the friend who checks up, who listens, who laughs at my dumb jokes, who gives honest advice even when I don't want to hear it.<br><br>Thank you for not switching up. Thank you for being consistent. In this generation, that's rare.<br><br>You've made my days better without even trying. And I hope you know I don't take that for granted.<br><br><b>Grateful for you,<br>Kelvin 🙏</b></div></div>
+
+<div id="m3" class="letter-modal" onclick="closeLetter('m3')"><div class="letter-content" onclick="event.stopPropagation()"><span class="close" onclick="closeLetter('m3')">×</span><h3 style="font-family:Fredoka">I'll Always Be Here 🌟</h3><br>Hey Ivy,<br><br>This is me telling you - I'm always here.<br><br>Bad day? Call me. Good day? Call me. Need to vent at 2AM? I'm awake. Need someone to celebrate with? I'm there with confetti.<br><br>Friendship to me is not just when it's convenient. It's showing up. So consider this your lifetime pass - I got you.<br><br>No matter where life takes us, you'll always have a friend in me. That's a forever thing.<br><br><b>Your friend forever,<br>Kelvin 🤝</b></div></div>
+
+<div class="final">
+<h2 style="color:white;margin:0">This Is For You, Ivy</h2>
+<p style="margin:15px 0 30px">Click all letters and promises - they were all written for you</p>
+<button class="btn" style="background:white;color:#5b21b6" onclick="confetti()">Send Ivy Love 💜✨</button>
+<p id="msg" style="display:none;margin-top:20px;font-size:18px">Yayy! You explored everything! You're the best, Ivy! 🎉💜</p>
+<p style="margin-top:40px;opacity:.6;font-size:12px">Made with love by Kelvin • 2026</p>
+</div>
+
+<script>
+function openLetter(id){document.getElementById('m'+id.slice(1)).style.display='flex'}
+function closeLetter(id){document.getElementById(id).style.display='none'}
+function confetti(){
+for(let i=0;i<80;i++){
+let e=document.createElement('div');e.className='float';e.innerHTML=['💜','✨','🌟','💫'][Math.floor(Math.random()*4)];
+e.style.left=Math.random()*100+'vw';e.style.fontSize='24px';e.style.animationDuration=(2+Math.random()*3)+'s';
+document.body.appendChild(e);setTimeout(()=>e.remove(),5000);
+}
+document.getElementById('msg').style.display='block';
+}
+setInterval(()=>{
+let e=document.createElement('div');e.className='float';e.innerHTML='💜';e.style.left=Math.random()*100+'vw';
+e.style.fontSize='16px';e.style.animationDuration='4s';document.body.appendChild(e);setTimeout(()=>e.remove(),6000);
+},500);
+</script>
+</body>
+</html>
