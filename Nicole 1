@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Nicole ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#240018,#65002d,#180019);color:white;text-align:center;min-height:100vh;overflow-x:hidden}
+.container{width:92%;max-width:650px;margin:auto;padding:35px 12px 50px;position:relative;z-index:2}
+h1{color:#ffb6d5;font-size:clamp(30px,8vw,46px);animation:glow 2s infinite alternate}
+h2{color:#ffbdd9}
+p{line-height:1.8;font-size:16px}
+button{border:none;border-radius:30px;padding:13px 22px;margin:8px;font-size:15px;font-weight:bold;background:#ff6fae;color:white;cursor:pointer;box-shadow:0 0 15px #ff4e9b55;transition:transform .2s}
+button:hover{transform:scale(1.06);background:#ff3e91}
+.card{background:#ffffff12;border:1px solid #ff9fc944;border-radius:22px;padding:22px 15px;margin:22px 0;backdrop-filter:blur(8px);box-shadow:0 8px 25px #00000022}
+.hidden{display:none}
+.heart{position:fixed;bottom:-30px;pointer-events:none;animation:floatUp linear forwards;z-index:1}
+@keyframes floatUp{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+@keyframes glow{from{text-shadow:0 0 5px #ff72b2}to{text-shadow:0 0 25px #ff3e91}}
+.big-heart{font-size:65px;animation:beat 1s infinite}
+@keyframes beat{50%{transform:scale(1.15)}}
+.message{background:#ff78b51b;border-radius:15px;padding:15px;margin:12px 0;text-align:left}
+input,select{padding:12px;width:90%;max-width:350px;border:1px solid #ff9fc9;border-radius:12px;margin:8px;font-size:15px}
+footer{padding:25px 5px;color:#ffbad8}
+.small{font-size:13px;opacity:.85}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="big-heart">❤️</div>
+<h1>Hey, Nicole 🥹❤️</h1>
+<p>I made something special for you.<br>Not because I had to, but because you deserve to feel special.</p>
+
+<div class="card" id="welcome">
+<h2>💌 Open My Surprise</h2>
+<p>There is a little world of love waiting for you inside this page.</p>
+<button onclick="openSurprise()">Open My Surprise ❤️</button>
+</div>
+
+<section id="main" class="hidden">
+<div class="card">
+<h2>🥰 One Little Question</h2>
+<p>Nicole, are you ready for a little journey through my heart?</p>
+<button onclick="answerYes()">YES 😍</button>
+<button onclick="answerNo()">NOT YET 🙈</button>
+<p id="answer"></p>
+</div>
+
+<div class="card">
+<h2>💖 Four Little Secrets</h2>
+<p>Tap each heart to unlock a message.</p>
+<button onclick="unlock(0)">Secret 1 💌</button>
+<div id="secret0" class="message hidden">You have a way of making ordinary moments feel like something worth remembering. ❤️</div>
+<button onclick="unlock(1)">Secret 2 💗</button>
+<div id="secret1" class="message hidden">Sometimes, I smile at my phone just because your name appears on my screen. 🥹</div>
+<button onclick="unlock(2)">Secret 3 💕</button>
+<div id="secret2" class="message hidden">If I could give you one thing, it would be the ability to see yourself through my eyes. Then you would understand how special you are. 🌹</div>
+<button onclick="unlock(3)">Secret 4 💘</button>
+<div id="secret3" class="message hidden">My favorite kind of happiness is the one that includes you. I hope we keep creating beautiful memories together. ❤️</div>
+</div>
+
+<div class="card">
+<h2>🌹 Five Promises for You</h2>
+<div class="message">💗 I will do my best to make you smile.</div>
+<div class="message">💗 I will listen when you need someone.</div>
+<div class="message">💗 I will respect your feelings and boundaries.</div>
+<div class="message">💗 I will celebrate your wins and encourage you through difficult days.</div>
+<div class="message">💗 I will keep choosing honesty, care, and effort.</div>
+</div>
+
+<div class="card">
+<h2>🌙 Our Little Date Planner</h2>
+<p>If we could plan a special day together, what would you choose?</p>
+<select id="dateIdea">
+<option value="">Choose our date idea 💕</option>
+<option>A sunset walk 🌅</option>
+<option>A cozy movie date 🎬</option>
+<option>A cute dinner date 🍓</option>
+<option>A long conversation under the stars ✨</option>
+<option>A spontaneous adventure 🥰</option>
+</select>
+<p>When would you like our special moment?</p>
+<input type="date" id="dateChoice">
+<br>
+<button onclick="planDate()">Save Our Idea ❤️</button>
+<p id="dateResult"></p>
+<p class="small">This is a little on-page plan; it isn't sent to me.</p>
+</div>
+
+<div class="card">
+<h2>🥹 One Last Question</h2>
+<div class="big-heart">💗</div>
+<p>Nicole, will you keep making beautiful memories with me, laughing with me, and letting our story grow one day at a time?</p>
+<button onclick="finalAnswer('yes')">Of course ❤️</button>
+<button onclick="finalAnswer('shy')">Awww, you're making me shy 🙈</button>
+<p id="finalMessage"></p>
+</div>
+
+<div class="card">
+<h2>💌 A Note Just for You</h2>
+<p>No website could ever explain everything I feel. But if this little surprise makes you smile even for a moment, then it has done its job.</p>
+<p>Thank you for being you, Nicole. You are a beautiful part of my story. ❤️</p>
+</div>
+</section>
+
+<footer>
+Made with love, just for Nicole ❤️
+<p>Your favorite person ❤️</p>
+</footer>
+</div>
+
+<script>
+function openSurprise(){
+document.getElementById("welcome").classList.add("hidden");
+document.getElementById("main").classList.remove("hidden");
+document.getElementById("main").scrollIntoView({behavior:"smooth"});
+burstHearts();
+}
+function answerYes(){
+document.getElementById("answer").textContent="Yaaay! 🥹❤️ Get comfortable, beautiful. This is just for you!";
+burstHearts();
+}
+function answerNo(){
+document.getElementById("answer").textContent="Take your time, sweetheart 🙈❤️ The surprises will wait for you!";
+}
+function unlock(number){
+const secret=document.getElementById("secret"+number);
+secret.classList.toggle("hidden");
+if(!secret.classList.contains("hidden"))burstHearts();
+}
+function planDate(){
+const idea=document.getElementById("dateIdea").value;
+const date=document.getElementById("dateChoice").value;
+const result=document.getElementById("dateResult");
+if(!idea){result.textContent="Choose our date idea first, Nicole 💕";return;}
+let message="Our dream date: "+idea;
+if(date)message+=" — "+date;
+result.textContent=message+". 🥰 Let's make a beautiful memory together!";
+burstHearts();
+}
+function finalAnswer(choice){
+const message=document.getElementById("finalMessage");
+if(choice==="yes"){
+message.textContent="You just made my heart smile, Nicole! ❤️ Here's to more memories together. 🥹💕";
+}else{
+message.textContent="Then let me keep trying to make you smile, one little surprise at a time. 🙈❤️";
+}
+burstHearts();
+}
+function burstHearts(){
+for(let i=0;i<14;i++)setTimeout(createHeart,i*100);
+}
+function createHeart(){
+const heart=document.createElement("div");
+heart.className="heart";
+const symbols=["❤️","💕","💗","💖","💘","🥰"];
+heart.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(16+Math.random()*22)+"px";
+heart.style.animationDuration=(4+Math.random()*4)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),8500);
+}
+setInterval(createHeart,800);
+</script>
+</body>
+</html>
